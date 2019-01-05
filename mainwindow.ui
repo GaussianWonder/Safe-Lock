@@ -6,20 +6,197 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>324</height>
+    <width>306</width>
+    <height>331</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Safe Pad</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Private Key</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="privateKeyInput">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="inputMethodHints">
+           <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
+          </property>
+          <property name="inputMask">
+           <string/>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+          <property name="placeholderText">
+           <string>This will be hidden from view</string>
+          </property>
+          <property name="clearButtonEnabled">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Cycles</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="cyclesInput">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="inputMethodHints">
+           <set>Qt::ImhNone</set>
+          </property>
+          <property name="inputMask">
+           <string>99</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Any 2 digit number</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="1">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>SaveSettings</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QPushButton" name="saveSettings">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Save</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>LoadSettings</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QPushButton" name="loadSettings">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Load</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QTextEdit" name="logArea">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="cursor" stdset="0">
+           <cursorShape>IBeamCursor</cursorShape>
+          </property>
+          <property name="inputMethodHints">
+           <set>Qt::ImhMultiLine</set>
+          </property>
+          <property name="tabChangesFocus">
+           <bool>true</bool>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+          </property>
+          <property name="placeholderText">
+           <string>AUTHORISE FIRST (CTRL+A). This window is a placeholder for logs, text is copy-able</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Info</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QSlider" name="cycleSlider">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>10</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="tickPosition">
+         <enum>QSlider::TicksBothSides</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>306</width>
      <height>21</height>
     </rect>
    </property>
@@ -27,21 +204,24 @@
     <property name="title">
      <string>Encrypt</string>
     </property>
-    <addaction name="actionFile"/>
-    <addaction name="actionString"/>
+    <addaction name="actionFileEncrypt"/>
+    <addaction name="actionStringEncrypt"/>
+    <addaction name="actionOne_Way"/>
    </widget>
    <widget class="QMenu" name="menuHElp">
     <property name="title">
      <string>Decrypt</string>
     </property>
-    <addaction name="actionFile_2"/>
-    <addaction name="actionString_2"/>
+    <addaction name="actionFileDecrypt"/>
+    <addaction name="actionStringDecrypt"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
      <string>Tools</string>
     </property>
+    <addaction name="actionAuthorise"/>
     <addaction name="actionCustom_command"/>
+    <addaction name="actionStore"/>
     <addaction name="separator"/>
     <addaction name="actionHelp"/>
    </widget>
@@ -50,63 +230,107 @@
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionEncrypt">
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionFileEncrypt"/>
+   <addaction name="actionFileDecrypt"/>
+   <addaction name="actionStore"/>
+   <addaction name="actionCustom_command"/>
+   <addaction name="actionAuthorise"/>
+  </widget>
+  <action name="actionFileEncrypt">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
    <property name="text">
-    <string>Encrypt</string>
+    <string>File (E)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+E</string>
    </property>
   </action>
-  <action name="actionDecrypt">
-   <property name="text">
-    <string>Decrypt</string>
-   </property>
-  </action>
-  <action name="actionCustom">
-   <property name="text">
-    <string>Deposit</string>
-   </property>
-  </action>
-  <action name="actionShow">
-   <property name="text">
-    <string>Show</string>
-   </property>
-  </action>
-  <action name="actionAuthorise">
-   <property name="text">
-    <string>Authorise</string>
-   </property>
-  </action>
-  <action name="actionFile">
-   <property name="text">
-    <string>File</string>
-   </property>
-  </action>
-  <action name="actionString">
+  <action name="actionStringEncrypt">
    <property name="text">
     <string>String</string>
    </property>
-  </action>
-  <action name="actionFile_2">
-   <property name="text">
-    <string>File</string>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
    </property>
   </action>
-  <action name="actionString_2">
+  <action name="actionFileDecrypt">
+   <property name="text">
+    <string>File (D)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+D</string>
+   </property>
+  </action>
+  <action name="actionStringDecrypt">
    <property name="text">
     <string>String</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
    </property>
   </action>
   <action name="actionCustom_command">
    <property name="text">
     <string>Custom command</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
   </action>
   <action name="actionHelp">
    <property name="text">
     <string>Help</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+  <action name="actionAuthorise">
+   <property name="text">
+    <string>Authorise</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionStore">
+   <property name="text">
+    <string>Store</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+S</string>
+   </property>
+  </action>
+  <action name="actionOne_Way">
+   <property name="text">
+    <string>One-Way</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>privateKeyInput</tabstop>
+  <tabstop>cycleSlider</tabstop>
+  <tabstop>saveSettings</tabstop>
+  <tabstop>loadSettings</tabstop>
+  <tabstop>logArea</tabstop>
+  <tabstop>cyclesInput</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

@@ -8,9 +8,9 @@ namespace SettingsReader
 {
     unsigned int storeFactor, cycles;
     std::string key = "";
-    std::ifstream file("settings.cbdat");
 
     void readData(){
+        std::ifstream file("settings.cbdat");
         char line[101];
 
         int i=0;
@@ -41,8 +41,28 @@ namespace SettingsReader
 
             ++i;
         }
+
+        file.close();
+    }
+
+    std::string setData(const unsigned int _storeFactor, const std::string _key, const unsigned int _cycles){
+        std::ofstream file("settings.cbdat");
+
+        if(_storeFactor <= 0 || _storeFactor > 3 || _key.compare("") == 0 || _cycles <= 0){
+            readData();
+            return "Invalid input\nCheck the private key and cycle number integrity\n";
+        }
+
+        key         = _key;
+        cycles      = _cycles;
+        storeFactor = _storeFactor;
+
+        file << storeFactor << '\n' << key << '\n' << cycles << '\n';
+
+        file.close();
+
+        return "Data saved successfully in settings.cbdat";
     }
 }
-
 
 #endif // SETTINGS_H
