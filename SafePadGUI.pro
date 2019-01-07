@@ -34,7 +34,6 @@ SOURCES += \
 HEADERS += \
         mainwindow.h \
     encrypt.h \
-    inputparser.h \
     settings.h \
     authorise.h \
     store.h \
