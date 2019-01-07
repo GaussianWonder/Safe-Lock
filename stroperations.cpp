@@ -47,3 +47,8 @@ void StrOperations::on_stringInput_textChanged()
 {
     if(ui->realTime->checkState() == Qt::CheckState::Checked) setCryptedText();
 }
+
+void StrOperations::on_exitBtn_clicked()
+{
+    this->close();
+}

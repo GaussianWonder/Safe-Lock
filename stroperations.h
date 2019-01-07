@@ -23,6 +23,8 @@ private slots:
 
     void on_stringInput_textChanged();
 
+    void on_exitBtn_clicked();
+
 private:
     Ui::StrOperations *ui;
     QString privateKey;

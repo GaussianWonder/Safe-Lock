@@ -22,6 +22,8 @@ private slots:
 
     void on_browseBtn_clicked();
 
+    void on_exitBtn_clicked();
+
 private:
     Ui::store *ui;
     QString privateKey;

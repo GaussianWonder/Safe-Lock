@@ -52,7 +52,8 @@ void authorise::on_authBtn_clicked()
                     correct = true;
                     this->auth = true;
                     this->min = ui->horizontalSlider->value();
-                    QMessageBox::information(this, "SUCCESS", "All done, you may use the app for " + ui->minValue->text() + "\n\nYou can close both dialogs");
+                    QMessageBox::information(this, "SUCCESS", "All done, you may use the app for " + ui->minValue->text() + "\n");
+                    this->close();
                 }
             }
         }

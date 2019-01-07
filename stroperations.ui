@@ -59,7 +59,14 @@
    <item>
     <widget class="QPushButton" name="cryptButton">
      <property name="text">
-      <string>Crypt</string>
+      <string>GO!</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="exitBtn">
+     <property name="text">
+      <string>Exit</string>
      </property>
     </widget>
    </item>

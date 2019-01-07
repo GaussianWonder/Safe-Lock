@@ -90,3 +90,8 @@ void store::on_browseBtn_clicked()
 
     ui->pathInput->setText( filePath );
 }
+
+void store::on_exitBtn_clicked()
+{
+    this->close();
+}
