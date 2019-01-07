@@ -41,6 +41,10 @@ private slots:
 
     void on_actionOne_Way_triggered();
 
+    void on_actionStringEncrypt_triggered();
+
+    void on_actionStringDecrypt_triggered();
+
 private:
     Ui::MainWindow *ui;
     QTimer *authTimer;

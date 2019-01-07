@@ -1,11 +1,14 @@
 #include "mainwindow.h"
-#include "authorise.h"
 #include "ui_mainwindow.h"
+#include "authorise.h"
+#include "store.h"
+#include "stroperations.h"
 
 #include <QFileDialog>
+#include <QMessageBox>
 #include <string>
-#include "settings.h"
 #include "encrypt.h"
+#include "settings.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -98,6 +101,11 @@ void MainWindow::on_loadSettings_clicked()
 
 void MainWindow::on_actionFileEncrypt_triggered()
 {
+    if(ui->privateKeyInput->text().size() <= 0 || ui->cyclesInput->text().toInt() <= 0){
+        QMessageBox::critical(this, "OOPS", "Fill everything or authorise");
+        return;
+    }
+
     QString filePath = QFileDialog::getOpenFileName(
             this,
             tr("Choose file to encrypt"),
@@ -124,6 +132,11 @@ void MainWindow::on_actionFileEncrypt_triggered()
 
 void MainWindow::on_actionFileDecrypt_triggered()
 {
+    if(ui->privateKeyInput->text().size() <= 0 || ui->cyclesInput->text().toInt() <= 0){
+        QMessageBox::critical(this, "OOPS", "Fill everything or authorise");
+        return;
+    }
+
     QString filePath = QFileDialog::getOpenFileName(
             this,
             tr("Choose file to encrypt"),
@@ -150,7 +163,19 @@ void MainWindow::on_actionFileDecrypt_triggered()
 
 void MainWindow::on_actionStore_triggered()
 {
+    if(ui->privateKeyInput->text().size() <= 0 || ui->cyclesInput->text().toInt() <= 0){
+        QMessageBox::critical(this, "OOPS", "Fill everything or authorise");
+        return;
+    }
 
+    QString privateKey  = ui->privateKeyInput->text();
+    unsigned int cycles = ui->cycleSlider->value();
+
+    store storeW(privateKey, cycles);
+    storeW.setModal(true);
+    storeW.exec();
+
+    ui->logArea->setText("Return from store action.\n");
 }
 
 void MainWindow::on_actionAuthorise_triggered()
@@ -163,8 +188,6 @@ void MainWindow::on_actionAuthorise_triggered()
     authW.setModal(true);
     authW.exec();
 
-    //authW = new authorise(this, );
-
     if(auth == true && min > 0){
         ui->logArea->setText( "Exiting auth\nBack in the main window\nAuth Success\n" + QString::number(min) + " min spanlife\n");
         isAuth = true;
@@ -172,11 +195,40 @@ void MainWindow::on_actionAuthorise_triggered()
         setTime();
     }
     else ui->logArea->setText( "Exiting auth\nBack in the main window\nAuth Failed" );
-
-
 }
 
 void MainWindow::on_actionOne_Way_triggered()
-{
+{   //QString PK, unsigned int C, int S, QWidget *parent = nullptr
+    if(ui->privateKeyInput->text().size() <= 0 || ui->cyclesInput->text().toInt() <= 0){
+        QMessageBox::critical(this, "OOPS", "Fill everything or authorise");
+        return;
+    }
 
+    StrOperations strOpW(ui->privateKeyInput->text(), ui->cyclesInput->text().toInt(), -1);
+    strOpW.setModal(true);
+    strOpW.exec();
+}
+
+void MainWindow::on_actionStringEncrypt_triggered()
+{
+    if(ui->privateKeyInput->text().size() <= 0 || ui->cyclesInput->text().toInt() <= 0){
+        QMessageBox::critical(this, "OOPS", "Fill everything or authorise");
+        return;
+    }
+
+    StrOperations strOpW(ui->privateKeyInput->text(), ui->cyclesInput->text().toInt(), 1);
+    strOpW.setModal(true);
+    strOpW.exec();
+}
+
+void MainWindow::on_actionStringDecrypt_triggered()
+{
+    if(ui->privateKeyInput->text().size() <= 0 || ui->cyclesInput->text().toInt() <= 0){
+        QMessageBox::critical(this, "OOPS", "Fill everything or authorise");
+        return;
+    }
+
+    StrOperations strOpW(ui->privateKeyInput->text(), ui->cyclesInput->text().toInt(), 0);
+    strOpW.setModal(true);
+    strOpW.exec();
 }

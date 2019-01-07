@@ -6,10 +6,10 @@
 
 namespace SettingsReader
 {
-    unsigned int storeFactor, cycles;
-    std::string key = "";
+    inline unsigned int storeFactor, cycles;
+    inline std::string key = "";
 
-    void readData(){
+    inline void readData(){
         std::ifstream file("settings.cbdat");
         char line[101];
 
@@ -45,7 +45,7 @@ namespace SettingsReader
         file.close();
     }
 
-    std::string setData(const unsigned int _storeFactor, const std::string _key, const unsigned int _cycles){
+    inline std::string setData(const unsigned int _storeFactor, const std::string _key, const unsigned int _cycles){
         std::ofstream file("settings.cbdat");
 
         if(_storeFactor <= 0 || _storeFactor > 3 || _key.compare("") == 0 || _cycles <= 0){

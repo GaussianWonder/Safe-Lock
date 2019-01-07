@@ -29,7 +29,7 @@ void authorise::on_horizontalSlider_valueChanged(int value)
 void authorise::on_authBtn_clicked()
 {
     if(ui->userInput->text().size() == 0 || ui->privateKeyInput->text().size() == 0 || ui->cyclesInput->text().size() == 0 || ui->cyclesInput->text().toInt() <= 0 || ui->cyclesInput->text().toInt() >= 16){
-        QMessageBox::critical(this, "FAILED", "Invalid input, check every checkbox\nThe secret number is supposed to be a number ranged between 1 and 15 (higher numbers will take longer time to compute)");
+        QMessageBox::critical(this, "FAILED", "Invalid input, fill everything first\nThe secret number is supposed to be a number ranged between 1 and 15 (higher numbers will take longer time to compute)");
         return;
     }
 

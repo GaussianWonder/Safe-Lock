@@ -28,7 +28,8 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     authorise.cpp \
-    store.cpp
+    store.cpp \
+    stroperations.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -36,12 +37,14 @@ HEADERS += \
     inputparser.h \
     settings.h \
     authorise.h \
-    store.h
+    store.h \
+    stroperations.h
 
 FORMS += \
         mainwindow.ui \
     authorise.ui \
-    store.ui
+    store.ui \
+    stroperations.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
