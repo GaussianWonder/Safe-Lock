@@ -48,7 +48,6 @@ void authorise::on_authBtn_clicked()
                             ui->cyclesInput->text().toInt()
                     );
                 std::string randval = str.substr(pos + 13, str.size() - (pos + 12));
-                QMessageBox::information(this, "IDK", QString::fromUtf8(val.data(), val.size()) + "\n" + QString::fromUtf8(randval.data(), randval.size()));
                 if(val.compare(str.substr(pos + 13, str.size() - (pos + 12))) == 0 ){
                     correct = true;
                     this->auth = true;
